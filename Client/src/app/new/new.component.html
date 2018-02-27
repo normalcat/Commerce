@@ -1,0 +1,43 @@
+<h2>
+New Product
+</h2>
+
+<div style="color:red;">
+    {{errors}}
+</div>
+
+<br>
+<br>
+<!--<form (submit)="submitPet()">-->
+<form>
+ Product name: <input type="text" name="newProduct.name"
+ required
+ minlength = '3'
+ [(ngModel)]="newProduct.name"
+ #name="ngModel"
+ />
+<!--{{ name.errors | json }}
+{{ name.valid | json }}-->
+<div *ngIf = "!name.valid"> Name needs at least 3 charaters </div>
+ <br><br>
+ Product qty: <input type="number" name="newProduct.qty" 
+ required
+ min = '0' 
+ [(ngModel)]="newProduct.qty"
+ #qty="ngModel"
+ />
+<div *ngIf = "!qty.valid"> Must be a number greater or equal to 0 </div>
+ <br><br>
+ Protudct price: <input type="number" name="newProduct.price" 
+ required
+ min = '0' 
+ [(ngModel)]="newProduct.price"
+ #price="ngModel"
+ />
+<div *ngIf = "!price.valid"> Must be a number greater or equal to 0 </div>
+ <br><br>
+ 	</form>
+
+ 	<div *ngIf = "price.valid && qty.valid && name.valid"><input type="button" value="Add A Product" (click) = "submitPet()"></div>
+ 	<button [routerLink]="['']">Home</button>
+

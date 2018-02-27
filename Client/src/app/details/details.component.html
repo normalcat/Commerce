@@ -1,0 +1,18 @@
+<h2>Product Details</h2>
+<div style="color:red;">
+<div *ngIf = "oneProduct.qty != 0">The delete button is only avaliable when the Qty is 0.</div>
+</div>
+
+<p>
+Name: {{oneProduct.name}}
+</p>
+<p>
+Qty: {{oneProduct.qty}}
+</p>
+<p>
+Price: ${{oneProduct.price}}
+</p>
+
+
+<div *ngIf = "oneProduct.qty == 0"><button (click) = "deleteOne(oneProduct._id)">Delete</button></div>
+<button [routerLink] = "['']">Back</button>

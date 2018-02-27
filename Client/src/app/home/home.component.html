@@ -1,0 +1,30 @@
+<h2>Productt List</h2>
+<button [routerLink]="['../new']">Add A Product</button>
+<table border=1>
+	 <thead>
+	<tr>
+		<td>Id</td>
+		<td>Name</td>
+		<td>Qty</td>
+		<td>Price</td>
+		<td>Action</td>
+	</tr>
+</thead>
+<ng-container *ngFor="let product of products">
+
+	<tr>
+	<td>{{product._id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.qty}}</td>
+    <td>{{product.price}}</td>
+    <td>
+    	<button [routerLink] = "['/edit']" (click) = "sendData(product._id)">Edit</button>
+    	<button [routerLink] = "['/details']" (click) = "sendData(product._id)">Details</button>
+    	<!--
+    	<button (click) = "deleteOne(pet._id)">Delete</button>
+    -->
+    </td>
+</tr>
+
+</ng-container>
+</table>
