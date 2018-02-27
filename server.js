@@ -42,12 +42,12 @@ app.post('/new', function(req, res) {
     if(err){
       res.json({error: err});
     } else { // else console.log that we did well and then redirect to the root route
-      res.json({success: "successfully added a pet!"});
+      res.json({success: "successfully added a product!"});
     }
   })
 })
 
-app.get('/products', function(req, res) {
+app.get('/products/all', function(req, res) {
      // sorted by type
       Product.find().sort({_id: 1}).exec(function(err, db_res){
       if(err){
@@ -70,19 +70,16 @@ app.get('/products/:id', function(req, res) {
     });
 });
 
-
 app.put("/products/edit/:id", function (req, res){
-
     Product.findByIdAndUpdate({_id: req.body._id}, {$set: {name: req.body.name, qty: req.body.qty, price: req.body.price}}, function(err, db_res){
     // if there is an error console.log that something went wrong!
       if(err) {
         console.log('something went wrong');
         res.json({error: err});
       } else { // else console.log that we did well and then redirect to the root route
-        res.json({success: "successfully updated a pet"});
-      }//if
-      
-    });//Product
+        res.json({success: "successfully updated a product"});
+      }
+    });
 });
 
 

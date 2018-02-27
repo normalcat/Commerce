@@ -13,7 +13,7 @@ export class HttpService {
   }
 
   getProducts() {
-        return this._http.get('/products');
+        return this._http.get('/products/all');
    }
 
    setID(ID) {
